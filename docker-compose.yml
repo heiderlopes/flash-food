@@ -1,0 +1,43 @@
+version: '3'
+services:
+  postgres_db:
+    image: postgres
+    environment:
+      POSTGRES_USER: flashfooddb
+      POSTGRES_PASSWORD: 9FUx4m£4:Vj?
+      POSTGRES_DB: flashfood
+    ports:
+      - "15432:5432"
+#    volumes:
+#      - /home/renatogroffe/Desenvolvimento/Docker-Compose/PostgreSQL:/var/lib/postgresql/data
+    networks:
+      - postgres-compose-network
+
+  db_pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "flashadmin@flashfood.com.br"
+      PGADMIN_DEFAULT_PASSWORD: "PgAdmin"
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres_db
+    networks:
+      - postgres-compose-network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8080"
+    depends_on:
+      - postgres_db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres_db:5432/flashfood
+      SPRING_DATASOURCE_USERNAME: flashfooddb
+      SPRING_DATASOURCE_PASSWORD: 9FUx4m£4:Vj?
+
+networks:
+  postgres-compose-network:
+    driver: bridge
