@@ -1,4 +1,12 @@
 package br.com.fastfood.flashfood.compartilhado.dominio.evento;
 
-public class Evento {
+import java.time.LocalDateTime;
+import java.util.Map;
+
+public interface Evento {
+
+    LocalDateTime momento();
+    TipoDeEvento tipo();
+    Map<String, Object> informacoes();
+
 }

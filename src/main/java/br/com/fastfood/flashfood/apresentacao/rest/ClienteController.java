@@ -1,4 +1,4 @@
-package br.com.fastfood.flashfood.cliente.aplicacao.rest;
+package br.com.fastfood.flashfood.apresentacao.rest;
 
 import br.com.fastfood.flashfood.cliente.dominio.dtos.ClienteDTO;
 import br.com.fastfood.flashfood.cliente.dominio.portas.entrada.PortaClienteServico;

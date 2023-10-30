@@ -1,4 +1,4 @@
-package br.com.fastfood.flashfood.cliente.aplicacao.rest.handler;
+package br.com.fastfood.flashfood.apresentacao.rest.handler;
 
 import br.com.fastfood.flashfood.cliente.dominio.excecoes.ClienteNaoEncontradoExcecao;
 import br.com.fastfood.flashfood.compartilhado.dominio.vo.RespostaDeErro;
