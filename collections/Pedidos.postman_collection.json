@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "8013f88d-8487-4b19-960f-9cfbc78dfe90",
+		"name": "Pedidos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48554",
+		"_collection_link": "https://gold-space-337470.postman.co/workspace/Flash-Food~9d5fd622-4af0-4e0f-b8ba-fc284f4b8751/collection/48554-8013f88d-8487-4b19-960f-9cfbc78dfe90?action=share&source=collection_link&creator=48554"
+	},
+	"item": [
+		{
+			"name": "Criar pedido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"itensDoPedido\" : [\n        \"c84eacb7-f8af-46a3-a8bc-82baaed4d7e8\"\n    ],\n    \"valorTotal\" : 1000\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedidos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pagar Pedido",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idDoPedido\": \"18f8a89e-1307-4ef2-8044-ff7ad281bbd8\",\n    \"cartaoDeCredito\" : {\n        \"nome\": \"Flash Gordon\",\n        \"numero\": \"123456789099977\",\n        \"mesExpiracao\": 12,\n        \"anoExpiracao\": 2022\n    }\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pedidos/pagar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedidos",
+						"pagar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Iniciar Preparacao",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idDoPedido\": \"7c6d94a3-4db7-4aba-8d1a-b7e26c29b19a\",\n    \"cartaoDeCredito\" : {\n        \"nome\": \"Flash Gordon\",\n        \"numero\": \"123456789099977\",\n        \"mesExpiracao\": 12,\n        \"anoExpiracao\": 2022\n    }\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pedidos/iniciarpreparacao/18f8a89e-1307-4ef2-8044-ff7ad281bbd8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedidos",
+						"iniciarpreparacao",
+						"18f8a89e-1307-4ef2-8044-ff7ad281bbd8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Finalizar preparacao",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idDoPedido\": \"7c6d94a3-4db7-4aba-8d1a-b7e26c29b19a\",\n    \"cartaoDeCredito\" : {\n        \"nome\": \"Flash Gordon\",\n        \"numero\": \"123456789099977\",\n        \"mesExpiracao\": 12,\n        \"anoExpiracao\": 2022\n    }\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pedidos/finalizarpreparacao/18f8a89e-1307-4ef2-8044-ff7ad281bbd8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedidos",
+						"finalizarpreparacao",
+						"18f8a89e-1307-4ef2-8044-ff7ad281bbd8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Entregar pedido",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"idDoPedido\": \"7c6d94a3-4db7-4aba-8d1a-b7e26c29b19a\",\n    \"cartaoDeCredito\" : {\n        \"nome\": \"Flash Gordon\",\n        \"numero\": \"123456789099977\",\n        \"mesExpiracao\": 12,\n        \"anoExpiracao\": 2022\n    }\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pedidos/entregarpedido/18f8a89e-1307-4ef2-8044-ff7ad281bbd8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedidos",
+						"entregarpedido",
+						"18f8a89e-1307-4ef2-8044-ff7ad281bbd8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Pedidos Recebidos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"itensDoPedido\" : [\n        \"b50da3dc-7d8b-4745-9408-78f2810606a6\"\n    ],\n    \"cpfDoCliente\" : \"123.456.789-00\",\n    \"valorTotal\" : 1000\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pedidos/status/RECEBIDO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedidos",
+						"status",
+						"RECEBIDO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Pedidos Em Preparação",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"itensDoPedido\" : [\n        \"b50da3dc-7d8b-4745-9408-78f2810606a6\"\n    ],\n    \"cpfDoCliente\" : \"123.456.789-00\",\n    \"valorTotal\" : 1000\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pedidos/status/EM_PREPARACAO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedidos",
+						"status",
+						"EM_PREPARACAO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Pedidos Pronto",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"itensDoPedido\" : [\n        \"b50da3dc-7d8b-4745-9408-78f2810606a6\"\n    ],\n    \"cpfDoCliente\" : \"123.456.789-00\",\n    \"valorTotal\" : 1000\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pedidos/status/PRONTO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedidos",
+						"status",
+						"PRONTO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Pedidos Finalizados",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"itensDoPedido\" : [\n        \"b50da3dc-7d8b-4745-9408-78f2810606a6\"\n    ],\n    \"cpfDoCliente\" : \"123.456.789-00\",\n    \"valorTotal\" : 1000\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pedidos/status/FINALIZADO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedidos",
+						"status",
+						"FINALIZADO"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

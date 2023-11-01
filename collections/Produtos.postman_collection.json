@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "353cb5e5-0830-40f5-a3d8-55b8aeffd037",
+		"name": "Produtos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48554",
+		"_collection_link": "https://gold-space-337470.postman.co/workspace/Flash-Food~9d5fd622-4af0-4e0f-b8ba-fc284f4b8751/collection/48554-353cb5e5-0830-40f5-a3d8-55b8aeffd037?action=share&source=collection_link&creator=48554"
+	},
+	"item": [
+		{
+			"name": "Criar produto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Coca cola 1000 ML\",\n  \"categoria\": \"BEBIDA\",\n  \"preco\": 1000,\n  \"descricao\": \"Bebida refrescante\",\n  \"imagens\": [\n    \"https://imagem1.com.br\",\n    \"https://imagem2.com.br\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos os produtos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Hamburguer\",\n  \"categoria\": \"LANCHE\",\n  \"preco\": 3000,\n  \"descricao\": \"2 hamburgueres, queijo, alface\",\n  \"imagens\": [\n    \"https://imagem1.com.br\",\n    \"https://imagem2.com.br\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar produtos por categoria",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Hamburguer\",\n  \"categoria\": \"LANCHE\",\n  \"preco\": 3000,\n  \"descricao\": \"2 hamburgueres, queijo, alface\",\n  \"imagens\": [\n    \"https://imagem1.com.br\",\n    \"https://imagem2.com.br\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos/categoria/ACOMPANHAMENTO",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos",
+						"categoria",
+						"ACOMPANHAMENTO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar produto",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\" : \"b12e00aa-7e7c-45c6-bc37-01e2e0c2dcdb\",\n  \"nome\": \"Guaraná 1000 ML\",\n  \"categoria\": \"BEBIDA\",\n  \"preco\": 1000,\n  \"descricao\": \"Bebida refrescante\",\n  \"imagens\": [\n    \"https://imagem1.com.br\",\n    \"https://imagem2.com.br\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar produto Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Coca cola 350 ML\",\n  \"categoria\": \"BEBIDA\",\n  \"preco\": 1000,\n  \"descricao\": \"Bebida refrescante\",\n  \"imagens\": [\n    \"https://imagem1.com.br\",\n    \"https://imagem2.com.br\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos/b12e00aa-7e7c-45c6-bc37-01e2e0c2dcdb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos",
+						"b12e00aa-7e7c-45c6-bc37-01e2e0c2dcdb"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,71 @@
+{
+	"info": {
+		"_postman_id": "b42c85a0-56eb-466f-8e5c-e76424a48ec3",
+		"name": "Clientes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48554",
+		"_collection_link": "https://gold-space-337470.postman.co/workspace/Flash-Food~9d5fd622-4af0-4e0f-b8ba-fc284f4b8751/collection/48554-b42c85a0-56eb-466f-8e5c-e76424a48ec3?action=share&source=collection_link&creator=48554"
+	},
+	"item": [
+		{
+			"name": "Buscar cliente por CPF",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes/123.456.789-00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes",
+						"123.456.789-00"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nome\" : \"Flash Gordon\",\n    \"cpf\" : \"123.456.789-00\",\n    \"email\": \"flash@gordon.com.br\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/clientes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"clientes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
