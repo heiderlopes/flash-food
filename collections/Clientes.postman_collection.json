@@ -46,7 +46,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"nome\" : \"Flash Gordon\",\n    \"cpf\" : \"123.456.789-00\",\n    \"email\": \"flash@gordon.com.br\"\n}",
+					"raw": "{\n    \"nome\" : \"Flash Gordon1\",\n    \"cpf\" : \"123.456.789-01\",\n    \"email\": \"flash1@gordon.com.br\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

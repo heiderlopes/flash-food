@@ -27,8 +27,8 @@ public class PedidoController {
     }
 
     @PostMapping
-    void criarPedido(@RequestBody PedidoDTO pedidoDTO) {
-        this.portaGerenciarPedidoServico.criarPedido(pedidoDTO);
+    PedidoDTO criarPedido(@RequestBody PedidoDTO pedidoDTO) {
+        return this.portaGerenciarPedidoServico.criarPedido(pedidoDTO);
     }
 
     @PostMapping("pagar")

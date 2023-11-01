@@ -48,7 +48,7 @@ public class PedidoEntidade {
     public Pedido toPedido() {
         return new Pedido(
                 (this.cpf == null) ? null : new CPF(this.cpf),
-                new CodigoDeIdentificacaoDoPedido(UUID.randomUUID()),
+                new CodigoDeIdentificacaoDoPedido(this.id),
                 this.itensDoPedido.stream().map(ItemDoPedidoEntidade::toItemDoPedido).collect(Collectors.toList()),
                 this.status, valorTotal,
                 this.dataDoPedido

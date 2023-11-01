@@ -107,7 +107,8 @@ public class Pedido {
                 this.getItensDoPedido().stream().map(ItemDoPedido::toItemDoPedidoDTO).collect(Collectors.toList()),
                 (this.getCpfDoCliente() == null) ? null : this.cpfDoCliente.getNumero(),
                 this.getValorTotal(),
-                PedidoStatusDTO.valueOf(this.status.name())
+                PedidoStatusDTO.valueOf(this.status.name()),
+                this.getCodigoDeIdentificacaoDoPedido().getId().toString()
         );
     }
 }

@@ -67,7 +67,73 @@
 			"response": []
 		},
 		{
-			"name": "Listar produtos por categoria",
+			"name": "Listar todos lanches",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Hamburguer\",\n  \"categoria\": \"LANCHE\",\n  \"preco\": 3000,\n  \"descricao\": \"2 hamburgueres, queijo, alface\",\n  \"imagens\": [\n    \"https://imagem1.com.br\",\n    \"https://imagem2.com.br\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos/categoria/LANCHE",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos",
+						"categoria",
+						"LANCHE"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todas as bebidas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Hamburguer\",\n  \"categoria\": \"LANCHE\",\n  \"preco\": 3000,\n  \"descricao\": \"2 hamburgueres, queijo, alface\",\n  \"imagens\": [\n    \"https://imagem1.com.br\",\n    \"https://imagem2.com.br\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos/categoria/BEBIDA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos",
+						"categoria",
+						"BEBIDA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos os acompanhamentos",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -94,6 +160,39 @@
 						"produtos",
 						"categoria",
 						"ACOMPANHAMENTO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todas as sobremesas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Hamburguer\",\n  \"categoria\": \"LANCHE\",\n  \"preco\": 3000,\n  \"descricao\": \"2 hamburgueres, queijo, alface\",\n  \"imagens\": [\n    \"https://imagem1.com.br\",\n    \"https://imagem2.com.br\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos/categoria/SOBREMESA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos",
+						"categoria",
+						"SOBREMESA"
 					]
 				}
 			},
@@ -151,6 +250,118 @@
 					"path": [
 						"produtos",
 						"b12e00aa-7e7c-45c6-bc37-01e2e0c2dcdb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar lanche",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Hamburguer\",\n  \"categoria\": \"LANCHE\",\n  \"preco\": 15.00,\n  \"descricao\": \"Pão com gergelim, 2 hamburgueres, salada, maionese\",\n  \"imagens\": [\n    \"https://img.freepik.com/vetores-gratis/desenho-de-hamburguer-delicioso-isolado_1308-134032.jpg?size=626&ext=jpg\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar bebida",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Coca cola 350 ML\",\n  \"categoria\": \"BEBIDA\",\n  \"preco\": 7.00,\n  \"descricao\": \"Bebida refrescante\",\n  \"imagens\": [\n    \"https://static.vecteezy.com/system/resources/previews/023/338/744/non_2x/ai-generative-coca-cola-company-fizzy-drinks-diet-coke-pepsi-free-png.png\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar acompanhamento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Batata Frita\",\n  \"categoria\": \"ACOMPANHAMENTO\",\n  \"preco\": 7.00,\n  \"descricao\": \"Batata frita fresquinha e crocante\",\n  \"imagens\": [\n    \"https://png.pngtree.com/png-vector/20210721/ourlarge/pngtree-french-fries-cartoon-food-vector-png-image_3618102.jpg\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar sobremesa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Sorvete casquinha de morango\",\n  \"categoria\": \"SOBREMESA\",\n  \"preco\": 4.00,\n  \"descricao\": \"Casquinha de morgango silvestre cremoso\",\n  \"imagens\": [\n    \"https://i.pinimg.com/1200x/2b/77/89/2b778920e479e280447565cb12513cb5.jpg\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos"
 					]
 				}
 			},

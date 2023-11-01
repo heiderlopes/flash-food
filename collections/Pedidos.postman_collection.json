@@ -9,12 +9,33 @@
 	"item": [
 		{
 			"name": "Criar pedido",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var responseData = pm.response.json();",
+							"postman.setEnvironmentVariable(\"idDoPedido\", responseData.idDoPedido);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"itensDoPedido\" : [\n        \"c84eacb7-f8af-46a3-a8bc-82baaed4d7e8\"\n    ],\n    \"valorTotal\" : 1000\n\n}",
+					"raw": "{\n    \"itensDoPedido\": [\n        {\n            \"nomeDoProduto\" : \"Hamburguer\",\n            \"valorUnitarioDoProduto\" : 20\n        }\n    ],\n    \"valorTotal\": 1000\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -42,7 +63,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"idDoPedido\": \"18f8a89e-1307-4ef2-8044-ff7ad281bbd8\",\n    \"cartaoDeCredito\" : {\n        \"nome\": \"Flash Gordon\",\n        \"numero\": \"123456789099977\",\n        \"mesExpiracao\": 12,\n        \"anoExpiracao\": 2022\n    }\n\n}",
+					"raw": "{\n    \"idDoPedido\": {{idDoPedido}},\n    \"cartaoDeCredito\" : {\n        \"nome\": \"Flash Gordon\",\n        \"numero\": \"123456789099977\",\n        \"mesExpiracao\": 12,\n        \"anoExpiracao\": 2022\n    }\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -79,7 +100,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/pedidos/iniciarpreparacao/18f8a89e-1307-4ef2-8044-ff7ad281bbd8",
+					"raw": "http://localhost:8080/pedidos/iniciarpreparacao/{{idDoPedido}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -88,7 +109,7 @@
 					"path": [
 						"pedidos",
 						"iniciarpreparacao",
-						"18f8a89e-1307-4ef2-8044-ff7ad281bbd8"
+						"{{idDoPedido}}"
 					]
 				}
 			},
@@ -109,7 +130,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/pedidos/finalizarpreparacao/18f8a89e-1307-4ef2-8044-ff7ad281bbd8",
+					"raw": "http://localhost:8080/pedidos/finalizarpreparacao/{{idDoPedido}}",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -118,7 +139,7 @@
 					"path": [
 						"pedidos",
 						"finalizarpreparacao",
-						"18f8a89e-1307-4ef2-8044-ff7ad281bbd8"
+						"{{idDoPedido}}"
 					]
 				}
 			},
@@ -281,6 +302,39 @@
 						"pedidos",
 						"status",
 						"FINALIZADO"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar todos lanches",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Hamburguer\",\n  \"categoria\": \"LANCHE\",\n  \"preco\": 3000,\n  \"descricao\": \"2 hamburgueres, queijo, alface\",\n  \"imagens\": [\n    \"https://imagem1.com.br\",\n    \"https://imagem2.com.br\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/produtos/categoria/BEBIDA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"produtos",
+						"categoria",
+						"BEBIDA"
 					]
 				}
 			},
