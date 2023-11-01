@@ -14,14 +14,6 @@ public class ItemDoPedidoEntidade {
 
     }
 
-//    public ItemDoPedidoEntidade(UUID id, UUID idDoProduto, String nomeDoProduto, BigDecimal valorUnitarioDoProduto, PedidoEntidade pedido) {
-//        this.id = id;
-//        this.idDoProduto = idDoProduto;
-//        this.nomeDoProduto = nomeDoProduto;
-//        this.valorUnitarioDoProduto = valorUnitarioDoProduto;
-//        this.pedido = pedido;
-//    }
-
     public ItemDoPedidoEntidade(ItemDoPedido itemDoPedido) {
         this.nomeDoProduto = itemDoPedido.getNomeDoProduto();
         this.valorUnitarioDoProduto = itemDoPedido.getValorUnitarioDoProduto();

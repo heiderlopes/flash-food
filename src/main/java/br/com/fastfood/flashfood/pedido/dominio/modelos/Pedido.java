@@ -3,9 +3,11 @@ package br.com.fastfood.flashfood.pedido.dominio.modelos;
 import br.com.fastfood.flashfood.compartilhado.dominio.vo.CPF;
 import br.com.fastfood.flashfood.compartilhado.dominio.vo.CodigoDeIdentificacaoDoPedido;
 import br.com.fastfood.flashfood.pedido.dominio.dtos.PedidoDTO;
+import br.com.fastfood.flashfood.pedido.dominio.dtos.PedidoStatusDTO;
 import br.com.fastfood.flashfood.pedido.dominio.excecao.AtualizacaoDeStatusDoPedidoExcecao;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -16,26 +18,21 @@ import static br.com.fastfood.flashfood.pedido.dominio.modelos.PedidoStatus.RECE
 public class Pedido {
 
     private CodigoDeIdentificacaoDoPedido codigoDeIdentificacaoDoPedido;
+
+    private LocalDateTime dataDoPedido;
     private CPF cpfDoCliente;
     private List<ItemDoPedido> itensDoPedido;
 
     private BigDecimal valorTotal;
     private PedidoStatus status;
 
-    public Pedido(CPF cpfDoCliente, List<ItemDoPedido> itensDoPedido, BigDecimal valorTotal) {
-        this.cpfDoCliente = cpfDoCliente;
-        this.codigoDeIdentificacaoDoPedido = new CodigoDeIdentificacaoDoPedido(UUID.randomUUID());
-        this.itensDoPedido = itensDoPedido;
-        this.valorTotal = valorTotal;
-        this.status = AGUARDANDO_PAGAMENTO;
-    }
-
-    public Pedido(CPF cpdDoCliente, CodigoDeIdentificacaoDoPedido codigoDeIdentificacaoDoPedido, List<ItemDoPedido> itensDoPedido, PedidoStatus status, BigDecimal valorTotal) {
+    public Pedido(CPF cpdDoCliente, CodigoDeIdentificacaoDoPedido codigoDeIdentificacaoDoPedido, List<ItemDoPedido> itensDoPedido, PedidoStatus status, BigDecimal valorTotal, LocalDateTime dataDoPedido) {
         this.cpfDoCliente = cpdDoCliente;
         this.codigoDeIdentificacaoDoPedido = codigoDeIdentificacaoDoPedido;
         this.itensDoPedido = itensDoPedido;
         this.valorTotal = valorTotal;
         this.status = status;
+        this.dataDoPedido = dataDoPedido;
     }
 
     public Pedido(PedidoDTO pedidoDTO) {
@@ -44,6 +41,7 @@ public class Pedido {
         this.itensDoPedido = pedidoDTO.getItensDoPedido().stream().map(ItemDoPedido::new).collect(Collectors.toList());
         this.valorTotal = pedidoDTO.getValorTotal();
         this.status = AGUARDANDO_PAGAMENTO;
+        this.dataDoPedido = LocalDateTime.now();
     }
 
     public CodigoDeIdentificacaoDoPedido getCodigoDeIdentificacaoDoPedido() {
@@ -66,6 +64,10 @@ public class Pedido {
         return status;
     }
 
+
+    public LocalDateTime getDataDoPedido() {
+        return dataDoPedido;
+    }
 
     public Pedido adicionarPedidoAFila() {
         if (status != AGUARDANDO_PAGAMENTO) {
@@ -104,7 +106,8 @@ public class Pedido {
         return new PedidoDTO(
                 this.getItensDoPedido().stream().map(ItemDoPedido::toItemDoPedidoDTO).collect(Collectors.toList()),
                 (this.getCpfDoCliente() == null) ? null : this.cpfDoCliente.getNumero(),
-                this.getValorTotal()
+                this.getValorTotal(),
+                PedidoStatusDTO.valueOf(this.status.name())
         );
     }
 }

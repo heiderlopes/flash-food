@@ -2,6 +2,7 @@ package br.com.fastfood.flashfood.pedido.dominio.dtos;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Objects;
 
 public class PedidoDTO {
     private String cpfDoCliente;
@@ -10,14 +11,18 @@ public class PedidoDTO {
 
     private BigDecimal valorTotal;
 
+    private PedidoStatusDTO status;
+
     public PedidoDTO(
             List<ItemDoPedidoDTO> itensDoPedido,
             String cpfDoCliente,
-            BigDecimal valorTotal) {
+            BigDecimal valorTotal,
+            PedidoStatusDTO status) {
 
         this.itensDoPedido = itensDoPedido;
         this.cpfDoCliente = cpfDoCliente;
         this.valorTotal = valorTotal;
+        this.status = Objects.requireNonNullElse(status, PedidoStatusDTO.AGUARDANDO_PAGAMENTO);
 
     }
 
@@ -31,5 +36,9 @@ public class PedidoDTO {
 
     public String getCpfDoCliente() {
         return cpfDoCliente;
+    }
+
+    public PedidoStatusDTO getStatus() {
+        return status;
     }
 }
