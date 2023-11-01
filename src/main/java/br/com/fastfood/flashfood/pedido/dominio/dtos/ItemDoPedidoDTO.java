@@ -1,22 +1,40 @@
 package br.com.fastfood.flashfood.pedido.dominio.dtos;
 
-import br.com.fastfood.flashfood.compartilhado.dominio.vo.CodigoDeIdentificacaoDoProduto;
-import br.com.fastfood.flashfood.pedido.dominio.modelos.ItemDoPedido;
+import java.math.BigDecimal;
 
 public class ItemDoPedidoDTO {
 
-    private CodigoDeIdentificacaoDoProduto codigoDeIdentificacaoDoProduto;
+    private String nomeDoProduto;
+    private BigDecimal valorUnitarioDoProduto;
 
-    public ItemDoPedidoDTO(ItemDoPedido itemDoPedido) {
-        this.codigoDeIdentificacaoDoProduto = itemDoPedido.getCodigoDeIdentificacaoDoProduto();
+
+    public ItemDoPedidoDTO(String nomeDoProduto, BigDecimal valorUnitarioDoProduto) {
+        this.nomeDoProduto = nomeDoProduto;
+        this.valorUnitarioDoProduto = valorUnitarioDoProduto;
     }
 
-    public ItemDoPedidoDTO(CodigoDeIdentificacaoDoProduto codigoDeIdentificacaoDoProduto) {
-        this.codigoDeIdentificacaoDoProduto = codigoDeIdentificacaoDoProduto;
+    public String getNomeDoProduto() {
+        return nomeDoProduto;
     }
 
-    public CodigoDeIdentificacaoDoProduto getCodigoDeIdentificacaoDoProduto() {
-        return codigoDeIdentificacaoDoProduto;
+    public BigDecimal getValorUnitarioDoProduto() {
+        return valorUnitarioDoProduto;
     }
+
+
+    //    public ItemDoPedidoDTO(UUID codigoDoProduto) {
+//        this.codigoDoProduto = codigoDoProduto;
+//    }
+
+//    public ItemDoPedidoDTO(String codigoDoProduto) {
+//        this.codigoDoProduto = UUID.fromString(codigoDoProduto);
+//    }
+//    public ItemDoPedidoDTO(ItemDoPedido itemDoPedido) {
+//        this.codigoDoProduto = itemDoPedido.getCodigoDeIdentificacaoDoProduto().getId().toString();
+//    }
+
+//    public ItemDoPedido toItemDoPedido(ItemDoPedidoDTO itemDoPedidoDTO) {
+//        return new ItemDoPedido(itemDoPedidoDTO);
+//    }
 
 }

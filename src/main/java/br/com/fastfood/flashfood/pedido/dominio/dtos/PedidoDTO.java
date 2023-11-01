@@ -1,32 +1,35 @@
 package br.com.fastfood.flashfood.pedido.dominio.dtos;
 
-import br.com.fastfood.flashfood.compartilhado.dominio.vo.CPF;
-
 import java.math.BigDecimal;
 import java.util.List;
 
 public class PedidoDTO {
-    private CPF cpfDoCliente;
+    private String cpfDoCliente;
 
-    private List<String> itensDoPedido;
+    private List<ItemDoPedidoDTO> itensDoPedido;
 
     private BigDecimal valorTotal;
 
-    public PedidoDTO(List<String> itensDoPedido, CPF cpfDoCliente, BigDecimal valorTotal) {
+    public PedidoDTO(
+            List<ItemDoPedidoDTO> itensDoPedido,
+            String cpfDoCliente,
+            BigDecimal valorTotal) {
+
         this.itensDoPedido = itensDoPedido;
         this.cpfDoCliente = cpfDoCliente;
         this.valorTotal = valorTotal;
+
     }
 
     public BigDecimal getValorTotal() {
         return valorTotal;
     }
 
-    public List<String> getItensDoPedido() {
+    public List<ItemDoPedidoDTO> getItensDoPedido() {
         return itensDoPedido;
     }
 
-    public CPF getCpfDoCliente() {
+    public String getCpfDoCliente() {
         return cpfDoCliente;
     }
 }

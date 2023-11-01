@@ -22,7 +22,7 @@ public class PedidoController {
     }
 
     @GetMapping("/status/{statusDoPedido}")
-    List<PedidoDTO> buscarPedidosPor(@PathVariable("statusDoPedido")PedidoStatusDTO pedidoStatusDTO) {
+    List<PedidoDTO> buscarPedidosPor(@PathVariable("statusDoPedido") PedidoStatusDTO pedidoStatusDTO) {
         return this.portaGerenciarPedidoServico.buscarPedidosPor(pedidoStatusDTO);
     }
 
@@ -30,7 +30,6 @@ public class PedidoController {
     void criarPedido(@RequestBody PedidoDTO pedidoDTO) {
         this.portaGerenciarPedidoServico.criarPedido(pedidoDTO);
     }
-
 
     @PostMapping("pagar")
     void pagarPedido(@RequestBody PagamentoDTO pagamentoDTO) {
