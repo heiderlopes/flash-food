@@ -34,9 +34,11 @@ services:
     depends_on:
       - postgres_db
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:15432/flashfood
+      SPRING_DATASOURCE_URL: jdbc:postgresql://flashfood_postgres_db_1:5432/flashfood
       SPRING_DATASOURCE_USERNAME: flashfooddb
       SPRING_DATASOURCE_PASSWORD: 9FUx4m£4:Vj?
+    networks:
+      - postgres-compose-network
 
 networks:
   postgres-compose-network:

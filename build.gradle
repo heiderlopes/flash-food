@@ -16,6 +16,14 @@ repositories {
 	mavenCentral()
 }
 
+apply plugin: 'java'
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'br.com.fastfood.flashfood.FlashfoodApplication'
+	}
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
