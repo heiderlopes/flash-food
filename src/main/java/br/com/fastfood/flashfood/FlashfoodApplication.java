@@ -27,14 +27,16 @@ package br.com.fastfood.flashfood;
 //    }
 //}
 
-import br.com.fastfood.flashfood.cliente.infraestrutura.adaptadores.repositories.RepositorioClienteSpring;
-import br.com.fastfood.flashfood.produto.infraestrutura.adaptadores.repositorios.RepositorioProdutoSpring;
+import br.com.fastfood.flashfood.cliente.infraestrutura.adaptadores.saida.repositories.persistencia.RepositorioClienteSpring;
+import br.com.fastfood.flashfood.pedido.infraestrutura.adaptadores.saida.repositorios.RepositorioPagamentoSpring;
+import br.com.fastfood.flashfood.pedido.infraestrutura.adaptadores.saida.repositorios.RepositorioPedidoSpring;
+import br.com.fastfood.flashfood.produto.infraestrutura.adaptadores.saida.repositorios.RepositorioProdutoSpring;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackageClasses = {RepositorioProdutoSpring.class, RepositorioClienteSpring.class})
+@EnableJpaRepositories(basePackageClasses = {RepositorioProdutoSpring.class, RepositorioClienteSpring.class, RepositorioPedidoSpring.class, RepositorioPagamentoSpring.class})
 public class FlashfoodApplication {
 
     public static void main(String[] args) {

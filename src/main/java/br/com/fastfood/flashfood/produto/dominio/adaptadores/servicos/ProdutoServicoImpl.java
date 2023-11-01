@@ -4,8 +4,8 @@ import br.com.fastfood.flashfood.produto.dominio.dtos.CategoriaDoProdutoDTO;
 import br.com.fastfood.flashfood.produto.dominio.dtos.ProdutoDTO;
 import br.com.fastfood.flashfood.produto.dominio.modelos.CategoriaDoProduto;
 import br.com.fastfood.flashfood.produto.dominio.modelos.Produto;
-import br.com.fastfood.flashfood.produto.dominio.portas.entrada.PortaProdutoServico;
-import br.com.fastfood.flashfood.produto.dominio.portas.saida.PortaProdutoRepositorio;
+import br.com.fastfood.flashfood.produto.aplicacao.portas.entrada.PortaProdutoServico;
+import br.com.fastfood.flashfood.produto.aplicacao.portas.saida.PortaProdutoRepositorio;
 
 import java.util.List;
 import java.util.UUID;
